@@ -6,41 +6,69 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Moon, Sun } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-export function ThemeToggle({ className }: { className?: string }) {
-  const { resolvedTheme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+export function ThemeToggle({
+  className,
+}: {
+  className?: string
+}) {
+  const { resolvedTheme, setTheme } =
+    useTheme()
 
-  useEffect(() => setMounted(true), [])
+  const [mounted, setMounted] =
+    useState(false)
 
-  const isDark = resolvedTheme === 'dark'
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const isDark =
+    mounted && resolvedTheme === 'dark'
 
   return (
     <button
       type="button"
       aria-label="Toggle color theme"
-      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      onClick={() =>
+        setTheme(isDark ? 'light' : 'dark')
+      }
       className={cn(
-        'relative inline-flex size-10 items-center justify-center overflow-hidden rounded-full border border-border bg-card/60 text-foreground transition-colors hover:bg-secondary',
-        className,
+        'relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-neutral-200 bg-white text-[#C79217] shadow-sm transition-all duration-300 hover:scale-105 hover:bg-neutral-100',
+        className
       )}
     >
-      {/* Avoid hydration flash: render a neutral icon until mounted */}
       {!mounted ? (
-        <Sun className="size-[18px] opacity-0" />
+        <div className="h-[18px] w-[18px]" />
       ) : (
-        <AnimatePresence mode="wait" initial={false}>
+        <AnimatePresence
+          mode="wait"
+          initial={false}
+        >
           <motion.span
             key={isDark ? 'moon' : 'sun'}
-            initial={{ y: 14, opacity: 0, rotate: -30 }}
-            animate={{ y: 0, opacity: 1, rotate: 0 }}
-            exit={{ y: -14, opacity: 0, rotate: 30 }}
-            transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="absolute inline-flex"
+            initial={{
+              opacity: 0,
+              rotate: -90,
+              scale: 0.7,
+            }}
+            animate={{
+              opacity: 1,
+              rotate: 0,
+              scale: 1,
+            }}
+            exit={{
+              opacity: 0,
+              rotate: 90,
+              scale: 0.7,
+            }}
+            transition={{
+              duration: 0.25,
+            }}
+            className="absolute flex items-center justify-center"
           >
             {isDark ? (
-              <Moon className="size-[18px] text-gold" />
+              <Moon className="h-[18px] w-[18px]" />
             ) : (
-              <Sun className="size-[18px] text-gold" />
+              <Sun className="h-[18px] w-[18px]" />
             )}
           </motion.span>
         </AnimatePresence>
