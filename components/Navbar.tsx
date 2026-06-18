@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { Menu, X, ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { siteConfig, navLinks } from '@/lib/site'
@@ -16,7 +17,16 @@ const sectionIds = navLinks.map((l) => l.id)
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
-  const active = useActiveSection(sectionIds)
+  const pathname = usePathname()
+  const onHome = pathname === '/'
+  const activeSection = useActiveSection(sectionIds)
+
+  // Section links (/#id) are active only while scrolled into view on the
+  // home page; route links (e.g. /products) are active by pathname match.
+  const isLinkActive = (link: (typeof navLinks)[number]) =>
+    link.href.startsWith('/#')
+      ? onHome && activeSection === link.id
+      : pathname === link.href
 
   return (
     <motion.header
@@ -32,7 +42,7 @@ export default function Navbar() {
       <nav className="flex w-full max-w-7xl items-center justify-between rounded-full border border-neutral-200 bg-white px-4 py-2 shadow-lg backdrop-blur-md transition-all duration-500 sm:px-5">
         {/* Logo */}
         <a
-          href="#top"
+          href="/"
           className="flex items-center gap-2"
           aria-label={siteConfig.name}
         >
@@ -49,7 +59,7 @@ export default function Navbar() {
         {/* Desktop Links */}
         <ul className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => {
-            const isActive = active === link.id
+            const isActive = isLinkActive(link)
 
             return (
               <li key={link.id}>
@@ -91,7 +101,7 @@ export default function Navbar() {
 
           {/* Quote Button */}
           <Button
-            href="#contact"
+            href="/contact"
             size="sm"
             className="hidden rounded-full bg-[#C79217] px-6 text-white hover:opacity-90 sm:inline-flex"
           >
@@ -183,7 +193,7 @@ export default function Navbar() {
                     onClick={() => setOpen(false)}
                     className={cn(
                       'block rounded-2xl px-4 py-3 text-sm font-medium transition-all duration-300',
-                      active === link.id
+                      isLinkActive(link)
                         ? 'bg-neutral-100 text-black'
                         : 'text-neutral-600 hover:bg-neutral-100 hover:text-black'
                     )}
@@ -195,7 +205,7 @@ export default function Navbar() {
             </ul>
 
             <Button
-              href="#contact"
+              href="/contact"
               onClick={() => setOpen(false)}
               className="mt-4 w-full rounded-full bg-[#C79217] text-white"
             >

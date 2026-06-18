@@ -11,7 +11,6 @@ import {
   ArrowUpRight,
 } from 'lucide-react'
 import { Container } from './ui/container'
-import { SectionHeading } from './ui/section-heading'
 import { Reveal } from './ui/reveal'
 import { Button } from './ui/button'
 import { siteConfig, offices, phones } from '@/lib/site'
@@ -62,7 +61,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative isolate z-10 scroll-mt-24 overflow-hidden py-24 pb-44 sm:py-28 sm:pb-52"
+      className="relative isolate z-10 scroll-mt-24 overflow-hidden pb-24 sm:pb-28"
     >
       {/* Background blur effect */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
@@ -71,20 +70,7 @@ export default function Contact() {
       </div>
 
       <Container>
-        <SectionHeading
-          eyebrow="Get in Touch"
-          title={
-            <>
-              Let’s build something{' '}
-              <span className="text-gradient-gold">
-                strong together
-              </span>
-            </>
-          }
-          description="Reach out for pricing, rental terms, or an on-site consultation — we usually respond the same day."
-        />
-
-        <div className="mt-14 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           {/* LEFT SIDE */}
           <Reveal direction="right" className="space-y-5">
             <InfoCard title="Our Locations" icon={MapPin}>

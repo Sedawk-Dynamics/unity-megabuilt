@@ -53,7 +53,7 @@ export default function Footer() {
             </div>
 
             <Button
-              href="#contact"
+              href="/contact"
               size="lg"
               className="shrink-0"
             >

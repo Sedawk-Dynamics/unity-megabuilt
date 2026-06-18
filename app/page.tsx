@@ -9,7 +9,6 @@ import Footer from '@/components/Footer'
 const Products = dynamic(() => import('@/components/Products'))
 const ImageCarousel = dynamic(() => import('@/components/ImageCarousel'))
 const Testimonials = dynamic(() => import('@/components/Testimonials'))
-const Contact = dynamic(() => import('@/components/Contact'))
 
 export default function Page() {
   return (
@@ -22,7 +21,6 @@ export default function Page() {
         <Products />
         <ImageCarousel />
         <Testimonials />
-        <Contact />
       </main>
       <Footer />
     </>

@@ -62,7 +62,7 @@ export default function Hero() {
             </motion.p>
 
             <motion.div variants={item} className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button href="#contact" size="lg">
+              <Button href="/contact" size="lg">
                 Get a Free Quote
                 <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
               </Button>

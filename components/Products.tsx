@@ -1,10 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Layers, CheckCircle2 } from 'lucide-react'
+import { Layers, CheckCircle2, ArrowRight } from 'lucide-react'
 import { Container } from './ui/container'
 import { SectionHeading } from './ui/section-heading'
 import { Reveal, Stagger, StaggerItem } from './ui/reveal'
+import { Button } from './ui/button'
 
 const products = [
   { title: 'Mild Steel Scaffolding Pipes', desc: 'Conforming to IS 1161 grade YST 210/240. 40mm NB tubes for verticals and horizontals.', spec: '40mm NB' },
@@ -83,6 +84,14 @@ export default function Products() {
               </div>
             </div>
           </div>
+        </Reveal>
+
+        {/* Link to the full catalogue */}
+        <Reveal delay={0.1} className="mt-12 flex justify-center">
+          <Button href="/products" size="lg" variant="outline">
+            View all products
+            <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+          </Button>
         </Reveal>
       </Container>
     </section>
