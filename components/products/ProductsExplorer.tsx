@@ -43,8 +43,8 @@ export function ProductsExplorer() {
     <section className="relative pb-24 sm:pb-28">
       <Container>
         {/* Filter bar */}
-        <div className="sticky top-[5.25rem] z-30 mb-10">
-          <div className="glass-strong mask-fade-x flex gap-1.5 overflow-x-auto rounded-full border border-border p-1.5 shadow-soft">
+        <div className="sticky top-20 z-30 mb-10 flex justify-center sm:justify-start">
+          <div className="flex max-w-full gap-1 overflow-x-auto rounded-full border border-border bg-card p-1.5 shadow-soft [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {filters.map((name) => {
               const isActive = active === name
               return (
@@ -52,7 +52,7 @@ export function ProductsExplorer() {
                   key={name}
                   onClick={() => setActive(name)}
                   className={cn(
-                    'relative shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors duration-300',
+                    'relative shrink-0 whitespace-nowrap rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-300',
                     isActive
                       ? 'text-primary-foreground'
                       : 'text-muted-foreground hover:text-foreground',
