@@ -81,6 +81,14 @@ export const products: Product[] = [
     spec: 'Complete system',
     image: '/images/products/still/23_cuplock_scaffolding_assembled.jpg',
   },
+  {
+    slug: 'cuplock-top-bottom-cup',
+    name: 'Cuplock Top & Bottom Cup',
+    category: 'Cuplock System',
+    desc: 'Welded bottom cup and captive top cup with ledger blade — the locking joint at the heart of the cuplock system.',
+    spec: 'Top & bottom cup',
+    image: '/images/products/surindra_steel/TOP_CUP_BOTTOM_CUP_LEDGER_BLADE_1.jpg',
+  },
 
   // ── Props & Spans ───────────────────────────────────────────────
   {
@@ -183,6 +191,30 @@ export const products: Product[] = [
     spec: 'With handle',
     image: '/images/products/still/29_prop_sleeve_nut_with_handle.jpg',
   },
+  {
+    slug: 'pvc-cone',
+    name: 'PVC Cone',
+    category: 'Formwork Accessories',
+    desc: 'PVC cone used with tie rods to form a recess and protect the rod in concrete walls.',
+    spec: 'With tie rod',
+    image: '/images/products/surindra_steel/WATER_STOPPER_PVC_CONE.jpg',
+  },
+  {
+    slug: 'anchor-nut',
+    name: 'Anchor Nut',
+    category: 'Formwork Accessories',
+    desc: 'Threaded anchor nut that secures formwork tie rods to soldiers and walers.',
+    spec: 'Threaded',
+    image: '/images/products/surindra_steel/ANCHOR_NUT.jpg',
+  },
+  {
+    slug: 'prop-nut',
+    name: 'Prop Nut',
+    category: 'Formwork Accessories',
+    desc: 'L&T-type prop nut for locking and fine-adjusting the height of adjustable steel props.',
+    spec: 'L&T type',
+    image: '/images/products/surindra_steel/L_T_PROP_NUT.jpg',
+  },
 
   // ── Frames & Access ─────────────────────────────────────────────
   {
@@ -283,9 +315,17 @@ export const products: Product[] = [
     slug: 'sleeve-coupler',
     name: 'Sleeve Coupler',
     category: 'Fittings & Accessories',
-    desc: 'External sleeve coupler that joins two tubes end-to-end in a continuous run.',
-    spec: 'End-to-end',
+    desc: 'Pressed sleeve coupler with rubber lining that joins two tubes end-to-end in a continuous run.',
+    spec: 'Rubber-lined',
     image: '/images/products/still/06_sleeve_coupler_rubber_lined.jpg',
+  },
+  {
+    slug: 'external-sleeve-coupler',
+    name: 'External Sleeve Coupler',
+    category: 'Fittings & Accessories',
+    desc: 'External sleeve coupler that joins two tube ends over the outside of the tube for a flush, continuous run.',
+    spec: 'External',
+    image: '/images/products/still/13_external_sleeve_coupler.jpg',
   },
   {
     slug: 'girder-coupler',
@@ -326,6 +366,30 @@ export const products: Product[] = [
     desc: 'Fixed steel base plate that spreads scaffold standard loads onto the ground or sole board.',
     spec: 'Fixed',
     image: '/images/products/still/11_girder_coupler_base_plate.jpg',
+  },
+  {
+    slug: 'forged-double-coupler',
+    name: 'Forged Double Coupler',
+    category: 'Fittings & Accessories',
+    desc: 'Forged right-angle (fixed) coupler that joins two tubes at 90° for load-bearing connections.',
+    spec: 'Forged, right-angle',
+    image: '/images/products/surindra_steel/FORGED_FIXED_FORGED_SWIVEL_CLAMP.jpg',
+  },
+  {
+    slug: 'box-clamp',
+    name: 'Box Clamp',
+    category: 'Fittings & Accessories',
+    desc: 'Heavy box clamp that connects two parallel scaffold tubes for strong, rigid connections.',
+    spec: 'Heavy-duty',
+    image: '/images/products/surindra_steel/BOX_CLAMP.jpg',
+  },
+  {
+    slug: 'ladder-clamp',
+    name: 'Ladder Clamp',
+    category: 'Fittings & Accessories',
+    desc: 'Clamp that secures access ladders firmly to the scaffold tube for safe climbing.',
+    spec: 'Galvanized',
+    image: '/images/products/surindra_steel/LADDER_CLAMP.jpg',
   },
   {
     slug: 'ms-shikanja',
