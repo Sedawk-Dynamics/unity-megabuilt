@@ -116,16 +116,18 @@ export default function Footer() {
             </p>
 
             <ul className="mt-5 space-y-3.5">
-              <li className="flex items-start gap-3">
-                <Mail className="mt-0.5 size-4 shrink-0 text-gold" />
+              {siteConfig.emails.map((email) => (
+                <li key={email} className="flex items-start gap-3">
+                  <Mail className="mt-0.5 size-4 shrink-0 text-gold" />
 
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="break-all text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  {siteConfig.email}
-                </a>
-              </li>
+                  <a
+                    href={`mailto:${email}`}
+                    className="break-all text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {email}
+                  </a>
+                </li>
+              ))}
 
               {phones.map((c) =>
                 c.numbers.map((n) => (

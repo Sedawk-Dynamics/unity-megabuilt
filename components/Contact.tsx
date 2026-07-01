@@ -46,7 +46,7 @@ export default function Contact() {
       message,
     ].join('\n')
 
-    window.location.href = `mailto:${siteConfig.email}?subject=${encodeURIComponent(
+    window.location.href = `mailto:${siteConfig.emails.join(',')}?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}`
 
@@ -70,7 +70,7 @@ export default function Contact() {
       </div>
 
       <Container>
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="grid items-start gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           {/* LEFT SIDE */}
           <Reveal direction="right" className="space-y-5">
             <InfoCard title="Our Locations" icon={MapPin}>
@@ -114,14 +114,19 @@ export default function Contact() {
               </InfoCard>
 
               <InfoCard title="Email" icon={Mail}>
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="group inline-flex items-center gap-1 break-all text-sm text-muted-foreground transition-colors hover:text-gold"
-                >
-                  {siteConfig.email}
+                <div className="flex flex-col gap-2">
+                  {siteConfig.emails.map((email) => (
+                    <a
+                      key={email}
+                      href={`mailto:${email}`}
+                      className="group inline-flex items-center gap-1 break-all text-sm text-muted-foreground transition-colors hover:text-gold"
+                    >
+                      {email}
 
-                  <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </a>
+                      <ArrowUpRight className="size-3.5 shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </a>
+                  ))}
+                </div>
 
                 <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
                   Prefer a callback? Drop us a message and we’ll

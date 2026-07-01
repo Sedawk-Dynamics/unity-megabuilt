@@ -149,6 +149,30 @@ export const products: Product[] = [
     spec: 'Circular',
     image: '/images/products/MS%20PHARMA.jpeg',
   },
+  {
+    slug: 'shuttering-plywood',
+    name: 'Shuttering Plywood',
+    category: 'Shuttering & Formwork',
+    desc: 'Phenol-bonded BWP-grade film-faced shuttering ply for beams, columns, slabs and walls.',
+    spec: '9 / 12 / 18 mm',
+    image: '/images/products/ply/SHUTTERING%20PLY.jpeg',
+  },
+  {
+    slug: 'plywood',
+    name: 'Plywood',
+    category: 'Shuttering & Formwork',
+    desc: 'Construction plywood for shuttering, boxing and general site formwork. Standard 8×4 ft sheets.',
+    spec: '8×4 ft',
+    image: '/images/products/ply/Ply.jpeg',
+  },
+  {
+    slug: 'silver-wood-plywood',
+    name: 'Silver Wood Plywood',
+    category: 'Shuttering & Formwork',
+    desc: 'Silverwood shuttering plywood — durable, water-resistant panels that give a smooth concrete finish.',
+    spec: '8×4 ft',
+    image: '/images/products/ply/Silver%20Wood.jpeg',
+  },
 
   // ── Formwork Accessories ────────────────────────────────────────
   {

@@ -2,7 +2,10 @@ export const siteConfig = {
   name: 'Unity Megabuilt',
   legalName: 'Unity Megabuilt Private Limited',
   tagline: 'Safe. Durable. Delivered.',
+  /** Primary email — used for JSON-LD and the mailto subject line. */
   email: 'unitymegabuild1@gmail.com',
+  /** All contact emails, shown across the site. */
+  emails: ['unitymegabuild1@gmail.com', 'acc.unitymegabuilt@gmail.com'],
   logo: '/logo.png',
 }
 
