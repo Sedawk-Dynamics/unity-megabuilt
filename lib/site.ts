@@ -18,9 +18,14 @@ export const navLinks = [
   { label: 'Contact', href: '/contact', id: 'contact' },
 ] as const
 
-export const phones = [
-  { name: 'A.K. Pandey', numbers: ['9867781299', '6386810163'] },
-  { name: 'Amit Pandey', numbers: ['7021054511'], tel: '28594247' },
+export type Phone = { name: string; role?: string; numbers: string[] }
+
+export const phones: Phone[] = [
+  { name: 'Amit Pandey', numbers: ['7021054511'] },
+  { name: 'Ramgopal Chaudhary', numbers: ['9373720196'] },
+  { name: 'Anil Kumar Pandey', role: 'A.K. Pandey', numbers: ['9867781299'] },
+  { name: 'Sales Head', numbers: ['9628578099'] },
+  { name: 'Office Executive', numbers: ['7599700045'] },
 ]
 
 export const offices = [

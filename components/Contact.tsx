@@ -97,6 +97,11 @@ export default function Contact() {
                       <p className="text-sm font-semibold text-foreground">
                         {contact.name}
                       </p>
+                      {contact.role && (
+                        <p className="text-[11px] font-medium uppercase tracking-wide text-gold">
+                          {contact.role}
+                        </p>
+                      )}
 
                       <div className="mt-1 flex flex-col gap-1">
                         {contact.numbers.map((number) => (
