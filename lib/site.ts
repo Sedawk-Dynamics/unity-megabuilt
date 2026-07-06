@@ -25,7 +25,15 @@ export const phones = [
 
 export const offices = [
   {
-    label: 'Head Office — Mumbai',
+    label: 'Workshop — Ayodhya',
+    address: 'Plot No. 564, Ranopali, Ayodhya Dham Road, Near Bhavdiya Public School, Ayodhya (U.P.)',
+  },
+  {
+    label: 'Registered Office — Khalilabad',
+    address: 'Plot No. D-50, Khalilabad Industrial Area, Khalilabad – 272175',
+  },
+  {
+    label: 'Office — Mumbai',
     address: 'Shop No. A-18, Anna Sagar Scrap Market, K A Road, Jarmari, Kurla (W), Mumbai – 400 072',
   },
   {
@@ -36,4 +44,15 @@ export const offices = [
     label: 'Godown — Nashik',
     address: 'Plot No. 34, 23/B/23/C/1, Near Maharashtra Weight Bridge, Nashik',
   },
+  {
+    label: 'Godown — Pune',
+    address: 'S. No. 311/1A/4, Uruli Devachi, Pune',
+  },
 ]
+
+export const socials = [
+  { key: 'instagram', label: 'Instagram', href: 'https://www.instagram.com/unitymegabuilt/?hl=en' },
+  { key: 'x', label: 'X (Twitter)', href: 'https://x.com/unitymegabuilt' },
+  { key: 'facebook', label: 'Facebook', href: 'https://www.facebook.com/unitymegabuilt/' },
+  { key: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/company/unity-megabuilt-pvt-ltd/' },
+] as const

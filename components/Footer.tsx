@@ -10,6 +10,7 @@ import {
 } from 'lucide-react'
 import { Container } from './ui/container'
 import { Button } from './ui/button'
+import { SocialLinks } from './ui/social-links'
 import {
   siteConfig,
   navLinks,
@@ -86,6 +87,8 @@ export default function Footer() {
             <p className="mt-5 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/5 px-3.5 py-1.5 text-xs font-medium text-gold">
               {siteConfig.tagline}
             </p>
+
+            <SocialLinks className="mt-6" />
           </div>
 
           {/* Quick links */}

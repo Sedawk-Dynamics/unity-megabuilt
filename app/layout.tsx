@@ -69,12 +69,13 @@ const jsonLd = {
   email: 'unitymegabuild1@gmail.com',
   telephone: '+91-9867781299',
   url: SITE_URL,
-  areaServed: ['Mumbai', 'Thane', 'Nashik'],
+  areaServed: ['Ayodhya', 'Khalilabad', 'Mumbai', 'Thane', 'Nashik', 'Pune'],
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Shop No. A-18, Anna Sagar Scrap Market, K A Road, Jarmari, Kurla (W)',
-    addressLocality: 'Mumbai',
-    postalCode: '400072',
+    streetAddress: 'Plot No. D-50, Khalilabad Industrial Area',
+    addressLocality: 'Khalilabad',
+    addressRegion: 'Uttar Pradesh',
+    postalCode: '272175',
     addressCountry: 'IN',
   },
 }

@@ -13,6 +13,7 @@ import {
 import { Container } from './ui/container'
 import { Reveal } from './ui/reveal'
 import { Button } from './ui/button'
+import { SocialLinks } from './ui/social-links'
 import { siteConfig, offices, phones } from '@/lib/site'
 import { cn } from '@/lib/utils'
 
@@ -133,6 +134,16 @@ export default function Contact() {
                   reach out with a tailored quote.
                 </p>
               </InfoCard>
+            </div>
+
+            <div className="card-premium relative z-20 overflow-hidden p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.12em] text-foreground">
+                Follow us
+              </p>
+              <p className="mt-1.5 text-sm text-muted-foreground">
+                See our latest projects and product updates.
+              </p>
+              <SocialLinks className="mt-4" />
             </div>
           </Reveal>
 
