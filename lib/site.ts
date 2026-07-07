@@ -34,23 +34,23 @@ export const offices = [
     address: 'Plot No. 564, Ranopali, Ayodhya Dham Road, Near Bhavdiya Public School, Ayodhya (U.P.)',
   },
   {
-    label: 'Registered Office — Khalilabad',
+    label: 'Workshop — Khalilabad',
     address: 'Plot No. D-50, Khalilabad Industrial Area, Khalilabad – 272175',
   },
   {
-    label: 'Office — Mumbai',
+    label: 'Workshop — Mumbai',
     address: 'Shop No. A-18, Anna Sagar Scrap Market, K A Road, Jarmari, Kurla (W), Mumbai – 400 072',
   },
   {
-    label: 'Godown — Thane',
+    label: 'Workshop — Thane',
     address: 'New Anna Sagar Market, Uttarshiv Naka, Mumbra–Panvel Road, Dist. Thane',
   },
   {
-    label: 'Godown — Nashik',
+    label: 'Workshop — Nashik',
     address: 'Plot No. 34, 23/B/23/C/1, Near Maharashtra Weight Bridge, Nashik',
   },
   {
-    label: 'Godown — Pune',
+    label: 'Workshop — Pune',
     address: 'S. No. 311/1A/4, Uruli Devachi, Pune',
   },
 ]
