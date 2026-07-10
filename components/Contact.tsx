@@ -8,55 +8,60 @@ import {
   Mail,
   Send,
   CheckCircle2,
+  AlertCircle,
+  Loader2,
   ArrowUpRight,
 } from 'lucide-react'
 import { Container } from './ui/container'
 import { Reveal } from './ui/reveal'
 import { Button } from './ui/button'
 import { SocialLinks } from './ui/social-links'
-import { siteConfig, offices, phones } from '@/lib/site'
+import { siteConfig, offices, phones, web3formsKey } from '@/lib/site'
 import { cn } from '@/lib/utils'
 
 const inputClass =
   'w-full rounded-xl border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/70 transition-all duration-300 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20'
 
-export default function Contact() {
-  const [sent, setSent] = useState(false)
+type Status = 'idle' | 'submitting' | 'success' | 'error'
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+export default function Contact() {
+  const [status, setStatus] = useState<Status>('idle')
+  const [error, setError] = useState('')
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
     const form = e.currentTarget
-    const data = new FormData(form)
+    const formData = new FormData(form)
+    const name = String(formData.get('name') ?? '').trim()
 
-    const name = String(data.get('name') ?? '')
-    const phone = String(data.get('phone') ?? '')
-    const company = String(data.get('company') ?? '')
-    const message = String(data.get('message') ?? '')
+    // Web3Forms delivers the submission straight to our inbox — no mail client.
+    formData.append('access_key', web3formsKey)
+    formData.append('from_name', siteConfig.name)
+    formData.append('subject', `New enquiry from ${name || 'website visitor'} — ${siteConfig.name}`)
 
-    const subject = `Scaffolding enquiry from ${
-      name || 'website visitor'
-    }`
+    setStatus('submitting')
+    setError('')
 
-    const body = [
-      `Name: ${name}`,
-      `Phone: ${phone}`,
-      `Company / Project: ${company}`,
-      '',
-      'Message:',
-      message,
-    ].join('\n')
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: formData,
+      })
+      const data = await res.json()
 
-    window.location.href = `mailto:${siteConfig.emails.join(',')}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`
-
-    setSent(true)
-    form.reset()
-
-    setTimeout(() => {
-      setSent(false)
-    }, 4000)
+      if (data.success) {
+        setStatus('success')
+        form.reset()
+      } else {
+        setStatus('error')
+        setError(data.message || 'Something went wrong. Please try again.')
+      }
+    } catch {
+      setStatus('error')
+      setError('Network error — please try again, or email us directly.')
+    }
   }
 
   return (
@@ -170,6 +175,17 @@ export default function Contact() {
                 onSubmit={handleSubmit}
                 className="mt-6 space-y-5"
               >
+                {/* Honeypot spam trap — hidden from real users */}
+                <input
+                  type="checkbox"
+                  name="botcheck"
+                  className="hidden"
+                  style={{ display: 'none' }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
+
                 <div className="grid gap-4 sm:grid-cols-2">
                   <Field label="Full Name" htmlFor="name">
                     <input
@@ -182,10 +198,19 @@ export default function Contact() {
                     />
                   </Field>
 
-                  <Field
-                    label="Phone Number"
-                    htmlFor="phone"
-                  >
+                  <Field label="Email" htmlFor="email">
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="you@example.com"
+                      className={inputClass}
+                    />
+                  </Field>
+                </div>
+
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <Field label="Phone Number" htmlFor="phone">
                     <input
                       id="phone"
                       name="phone"
@@ -194,20 +219,17 @@ export default function Contact() {
                       className={inputClass}
                     />
                   </Field>
-                </div>
 
-                <Field
-                  label="Company / Project"
-                  htmlFor="company"
-                >
-                  <input
-                    id="company"
-                    name="company"
-                    type="text"
-                    placeholder="Company name or project"
-                    className={inputClass}
-                  />
-                </Field>
+                  <Field label="Company / Project" htmlFor="company">
+                    <input
+                      id="company"
+                      name="company"
+                      type="text"
+                      placeholder="Company name or project"
+                      className={inputClass}
+                    />
+                  </Field>
+                </div>
 
                 <Field label="Message" htmlFor="message">
                   <textarea
@@ -227,25 +249,44 @@ export default function Contact() {
                   type="submit"
                   size="lg"
                   className="w-full"
+                  disabled={status === 'submitting'}
                 >
-                  <Send className="size-4" />
-                  Send Enquiry
+                  {status === 'submitting' ? (
+                    <>
+                      <Loader2 className="size-4 animate-spin" />
+                      Sending…
+                    </>
+                  ) : (
+                    <>
+                      <Send className="size-4" />
+                      Send Enquiry
+                    </>
+                  )}
                 </Button>
 
-                <AnimatePresence>
-                  {sent && (
+                <AnimatePresence mode="wait">
+                  {status === 'success' && (
                     <motion.p
+                      key="success"
                       initial={{ opacity: 0, y: 10 }}
-                      animate={{
-                        opacity: 1,
-                        y: 0,
-                      }}
+                      animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0 }}
-                      className="flex items-center justify-center gap-2 text-sm text-gold"
+                      className="flex items-center justify-center gap-2 text-center text-sm text-gold"
                     >
-                      <CheckCircle2 className="size-4" />
-                      Opening your email app — just hit
-                      send!
+                      <CheckCircle2 className="size-4 shrink-0" />
+                      Thanks! Your enquiry has been sent — we’ll get back to you shortly.
+                    </motion.p>
+                  )}
+                  {status === 'error' && (
+                    <motion.p
+                      key="error"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0 }}
+                      className="flex items-center justify-center gap-2 text-center text-sm text-red-500"
+                    >
+                      <AlertCircle className="size-4 shrink-0" />
+                      {error}
                     </motion.p>
                   )}
                 </AnimatePresence>

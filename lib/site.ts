@@ -18,6 +18,10 @@ export const navLinks = [
   { label: 'Contact', href: '/contact', id: 'contact' },
 ] as const
 
+/** Web3Forms public access key for the contact form (safe to expose in client code). */
+export const web3formsKey =
+  process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? '7d6c61ba-0c24-4534-a36b-764173b530e7'
+
 export type Phone = { name: string; role?: string; numbers: string[] }
 
 export const phones: Phone[] = [
