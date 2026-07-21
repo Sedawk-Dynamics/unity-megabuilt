@@ -33,7 +33,7 @@ export type Phone = { name: string; role?: string; numbers: string[] }
 export const phones: Phone[] = [
   { name: 'Amit Pandey', numbers: ['7021054511'] },
   { name: 'Ramgopal Chaudhary', numbers: ['9373720196'] },
-  { name: 'Anil Kumar Pandey', role: 'A.K. Pandey', numbers: ['9867781299'] },
+  { name: 'Anil Kumar Pandey', numbers: ['9867781299'] },
   { name: 'Sales Head', numbers: ['9090300045'] },
   { name: 'Office Executive', numbers: ['7599700045'] },
 ]
