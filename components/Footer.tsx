@@ -166,6 +166,18 @@ export default function Footer() {
             Enterprises
           </p>
 
+          <p className="text-center text-xs text-muted-foreground">
+            Designed by{' '}
+            <a
+              href="https://webel.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-gold transition-opacity hover:opacity-80"
+            >
+              Webelio
+            </a>
+          </p>
+
           <a
             href="#top"
             className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-4 py-2 text-xs font-medium text-muted-foreground transition-colors hover:border-gold/50 hover:text-foreground"

@@ -66,22 +66,6 @@ export const products: Product[] = [
     image: '/images/products/MS%20CUPLOCK%20LEDGER.jpeg',
   },
   {
-    slug: 'ms-vertical',
-    name: 'MS Vertical',
-    category: 'Cuplock System',
-    desc: 'Heavy-duty M.S. vertical standards for tube-and-coupler and cuplock scaffolds, finished for a long rental life.',
-    spec: 'IS 1239 / 1161',
-    image: '/images/products/MS%20VERTICAL.jpeg',
-  },
-  {
-    slug: 'cuplock-system',
-    name: 'Cuplock Scaffolding System',
-    category: 'Cuplock System',
-    desc: 'Complete assembled cuplock system — verticals, ledgers and braces for fast, stable access and shoring.',
-    spec: 'Complete system',
-    image: '/images/products/still/23_cuplock_scaffolding_assembled.jpg',
-  },
-  {
     slug: 'cuplock-top-bottom-cup',
     name: 'Cuplock Top & Bottom Cup',
     category: 'Cuplock System',
@@ -156,14 +140,6 @@ export const products: Product[] = [
     desc: 'Phenol-bonded BWP-grade film-faced shuttering ply for beams, columns, slabs and walls.',
     spec: '9 / 12 / 18 mm',
     image: '/images/products/ply/SHUTTERING%20PLY.jpeg',
-  },
-  {
-    slug: 'plywood',
-    name: 'Plywood',
-    category: 'Shuttering & Formwork',
-    desc: 'Construction plywood for shuttering, boxing and general site formwork. Standard 8×4 ft sheets.',
-    spec: '8×4 ft',
-    image: '/images/products/ply/Ply.jpeg',
   },
   {
     slug: 'silver-wood-plywood',
@@ -243,11 +219,11 @@ export const products: Product[] = [
   // ── Frames & Access ─────────────────────────────────────────────
   {
     slug: 'ms-h-frame',
-    name: 'MS H Frame',
+    name: 'MS H Frame & X-Bracing',
     category: 'Frames & Access',
-    desc: 'H-frame for rapid tower scaffolding and shoring. Standard module with cross bracings for lateral stability.',
+    desc: 'H-frame with cross (X) bracing for rapid tower scaffolding and shoring. Standard module that gives lateral stability.',
     spec: '2m × 1m',
-    image: '/images/products/MS%20H%20FRAME%202MTR%20X%201%20MTR.jpeg',
+    image: '/images/products/MS_H_FRAME_X_BRACING.png',
   },
   {
     slug: 'ms-falli-jalli',
@@ -277,14 +253,6 @@ export const products: Product[] = [
   },
 
   // ── Material Handling ───────────────────────────────────────────
-  {
-    slug: 'ms-trolley',
-    name: 'MS Trolley',
-    category: 'Material Handling',
-    desc: 'Heavy-gauge steel concrete / material trolley for moving loads around the site.',
-    spec: 'Heavy-duty',
-    image: '/images/products/MS%20TROLLEY.jpeg',
-  },
   {
     slug: 'ms-trolley-wheel-barrow',
     name: 'MS Trolley Wheel Barrow',
