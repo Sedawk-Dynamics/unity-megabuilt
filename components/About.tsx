@@ -41,8 +41,8 @@ export default function About() {
             />
             <Reveal delay={0.1} className="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground">
               <p>
-                Welcome to <strong className="font-semibold text-foreground">New Aditya Enterprises</strong> and{' '}
-                <strong className="font-semibold text-foreground">Amit Enterprises</strong> — a leading name in the rental
+                Welcome to{' '}
+                <strong className="font-semibold text-foreground">Unity Megabuilt Private Limited</strong> — a leading name in the rental
                 and manufacturing of high-quality M.S. and Aluminium scaffolding solutions. With utmost customer faith,
                 we’ve established ourselves as a trusted partner for construction professionals seeking reliable, robust
                 systems.

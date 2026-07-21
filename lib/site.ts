@@ -2,10 +2,16 @@ export const siteConfig = {
   name: 'Unity Megabuilt',
   legalName: 'Unity Megabuilt Private Limited',
   tagline: 'Safe. Durable. Delivered.',
+  /** Canonical origin — drives metadata, sitemap and robots. Override with NEXT_PUBLIC_SITE_URL. */
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://unitymegabuilt.com',
   /** Primary email — used for JSON-LD and the mailto subject line. */
   email: 'unitymegabuild1@gmail.com',
   /** All contact emails, shown across the site. */
-  emails: ['unitymegabuild1@gmail.com', 'acc.unitymegabuilt@gmail.com'],
+  emails: [
+    'unitymegabuild1@gmail.com',
+    'acc.unitymegabuilt@gmail.com',
+    'marketing@unitymegabuilt.com',
+  ],
   logo: '/logo.png',
 }
 
@@ -28,7 +34,7 @@ export const phones: Phone[] = [
   { name: 'Amit Pandey', numbers: ['7021054511'] },
   { name: 'Ramgopal Chaudhary', numbers: ['9373720196'] },
   { name: 'Anil Kumar Pandey', role: 'A.K. Pandey', numbers: ['9867781299'] },
-  { name: 'Sales Head', numbers: ['9628578099'] },
+  { name: 'Sales Head', numbers: ['9090300045'] },
   { name: 'Office Executive', numbers: ['7599700045'] },
 ]
 

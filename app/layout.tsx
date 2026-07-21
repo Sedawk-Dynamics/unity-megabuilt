@@ -3,6 +3,7 @@ import { Inter, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
 import { Providers } from './providers'
+import { siteConfig } from '@/lib/site'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -16,7 +17,7 @@ const geistMono = Geist_Mono({
   display: 'swap',
 })
 
-const SITE_URL = 'https://unitymegabuilt.com'
+const SITE_URL = siteConfig.url
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
